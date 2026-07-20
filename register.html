@@ -1,122 +1,394 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create Free Account</title>
+<title>Create Account</title>
 
 <style>
-body{
-    margin:0;
-    padding:20px;
-    background:#f2f7ff;
-    font-family:Arial,sans-serif;
+
+*{
+box-sizing:border-box;
 }
+
+body{
+
+margin:0;
+padding:25px 15px;
+background:#120912;
+font-family:Arial,sans-serif;
+color:white;
+
+}
+
 
 .container{
-    max-width:420px;
-    margin:auto;
-    background:white;
-    padding:25px;
-    border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+
+max-width:430px;
+margin:auto;
+
 }
 
-h2{
-    text-align:center;
-    color:#0b6b0b;
+
+h1{
+
+text-align:center;
+font-size:30px;
+font-weight:600;
+margin:15px 0 35px;
+
+background:linear-gradient(90deg,#ff4da6,#ffffff);
+-webkit-background-clip:text;
+color:transparent;
+
 }
 
-input, select{
-    width:100%;
-    padding:12px;
-    margin:10px 0;
-    border:1px solid #ccc;
-    border-radius:8px;
-    box-sizing:border-box;
+
+
+.card{
+
+background:#190d18;
+padding:35px 25px;
+border-radius:20px;
+
 }
+
+
+
+label{
+
+display:block;
+margin-top:25px;
+margin-bottom:10px;
+
+font-size:17px;
+font-weight:bold;
+letter-spacing:.5px;
+
+color:#cbb9ca;
+
+}
+
+
+
+input,select{
+
+width:100%;
+height:70px;
+
+padding:0 22px;
+
+background:#120912;
+
+border:2px solid #64204c;
+
+border-radius:14px;
+
+color:white;
+
+font-size:18px;
+
+outline:none;
+
+}
+
+
+
+input::placeholder{
+
+color:#817080;
+
+}
+
+
+
+select{
+
+appearance:auto;
+
+}
+
+
+
+small{
+
+display:block;
+
+margin-top:12px;
+
+font-size:16px;
+
+line-height:1.8;
+
+color:#b59caf;
+
+}
+
+
+
+.info{
+
+margin-top:30px;
+
+background:#15231f;
+
+border:1px solid #1c6855;
+
+padding:20px;
+
+border-radius:14px;
+
+font-size:17px;
+
+line-height:1.8;
+
+color:#7ff1c1;
+
+}
+
+
 
 button{
-    width:100%;
-    padding:14px;
-    background:#0b6b0b;
-    color:white;
-    border:none;
-    border-radius:8px;
-    font-size:16px;
-    cursor:pointer;
+
+width:100%;
+
+height:65px;
+
+margin-top:30px;
+
+border:none;
+
+border-radius:15px;
+
+background:#e92791;
+
+color:white;
+
+font-size:19px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+box-shadow:0 0 25px rgba(233,39,145,.6);
+
 }
+
+
+
+.login{
+
+text-align:center;
+
+margin-top:30px;
+
+font-size:17px;
+
+color:#bcaabc;
+
+}
+
+
+
+.login span{
+
+color:#ff5aad;
+
+}
+
+
+
 </style>
 
 </head>
 
+
 <body>
+
 
 <div class="container">
 
-<h2>Create Your Account</h2>
 
-<input type="text" placeholder="Full Name" id="name">
+<h1>Create Account</h1>
 
-<input type="tel" placeholder="Phone Number" id="phone">
 
-<input type="number" placeholder="Age" id="age">
+<div class="card">
+
+
+
+<label>FULL NAME *</label>
+
+<input id="name" type="text" placeholder="Enter your full name">
+
+
+
+<label>M-PESA PHONE NUMBER *</label>
+
+<input id="phone" type="tel" placeholder="0712345678">
+
+<small>
+This number will be used for M-Pesa activation & withdrawals
+</small>
+
+
+
+<label>AGE *</label>
+
+<input id="age" type="number" placeholder="Enter your age">
+
+
+
+<label>GENDER *</label>
 
 <select id="gender">
-<option value="">Select Gender</option>
+
+<option>Select gender</option>
+
 <option>Male</option>
+
 <option>Female</option>
+
 </select>
+
+
+
+<label>COUNTRY *</label>
 
 <select id="country">
+
 <option>Kenya</option>
+
 <option>Uganda</option>
+
 <option>Tanzania</option>
-<option>Other</option>
+
 </select>
 
-<h3>Select Interests</h3>
 
-<label>
-<input type="checkbox"> Chat with Foreigners
-</label><br>
 
-<label>
-<input type="checkbox"> Language Exchange
-</label><br>
+<label>PASSWORD *</label>
 
-<label>
-<input type="checkbox"> Make Friends
-</label>
+<input id="password" type="password" placeholder="Min 6 characters">
 
-<br><br>
 
-<button onclick="continuePayment()">
-Continue
-</button>
+
+<label>CONFIRM PASSWORD *</label>
+
+<input id="confirm" type="password" placeholder="Repeat password">
+
+
+
+
+
+<div class="info">
+
+ⓘ After registration you will be asked to pay a 
+one-time activation fee of 
+<b>Ksh 100 via M-Pesa</b>
+to unlock your account and start chatting.
 
 </div>
 
 
+
+
+<button onclick="continuePayment()">
+
+👤 Create Account & Continue
+
+</button>
+
+
+
+
+<div class="login">
+
+Already have an account?
+
+<span>Login here</span>
+
+</div>
+
+
+
+</div>
+
+</div>
+
+
+
+
+
 <script>
+
 function continuePayment(){
 
-let name = document.getElementById("name").value;
-let phone = document.getElementById("phone").value;
 
-if(name == "" || phone == ""){
-alert("Please fill your details");
+let name=document.getElementById("name").value;
+
+let phone=document.getElementById("phone").value;
+
+let age=document.getElementById("age").value;
+
+let gender=document.getElementById("gender").value;
+
+let password=document.getElementById("password").value;
+
+let confirm=document.getElementById("confirm").value;
+
+
+
+if(name=="" || phone=="" || age=="" || password=="" || confirm==""){
+
+alert("Please fill all fields");
+
 return;
-}
-
-localStorage.setItem("name", name);
-localStorage.setItem("phone", phone);
-
-window.location.href = "activate.html";
 
 }
+
+
+
+if(password.length < 6){
+
+alert("Password must be at least 6 characters");
+
+return;
+
+}
+
+
+
+if(password!==confirm){
+
+alert("Passwords do not match");
+
+return;
+
+}
+
+
+
+localStorage.setItem("name",name);
+
+localStorage.setItem("phone",phone);
+
+localStorage.setItem("age",age);
+
+localStorage.setItem("gender",gender);
+
+
+
+window.location.href="activate.html";
+
+
+}
+
+
 </script>
+
+
 
 </body>
 </html>
