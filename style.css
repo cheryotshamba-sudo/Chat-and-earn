@@ -175,3 +175,60 @@ grid-template-columns:repeat(2,1fr);
 }
 
   }
+.features{
+max-width:1200px;
+margin:auto;
+padding:80px 20px;
+text-align:center;
+}
+
+.features h2{
+font-family:'Playfair Display',serif;
+font-size:42px;
+margin-bottom:15px;
+}
+
+.subtitle{
+max-width:700px;
+margin:auto;
+margin-bottom:50px;
+color:#d8d8d8;
+line-height:1.8;
+}
+
+.feature-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.feature-card{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+border-radius:22px;
+padding:35px 25px;
+backdrop-filter:blur(10px);
+transition:.35s;
+}
+
+.feature-card:hover{
+transform:translateY(-10px);
+border-color:#ff5ab5;
+box-shadow:0 10px 35px rgba(255,90,181,.25);
+}
+
+.feature-card i{
+font-size:42px;
+color:#ff5ab5;
+margin-bottom:20px;
+}
+
+.feature-card h3{
+font-size:22px;
+margin-bottom:15px;
+}
+
+.feature-card p{
+color:#d8d8d8;
+line-height:1.7;
+  }
