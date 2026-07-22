@@ -7,11 +7,15 @@
 
 <title>Activate Account</title>
 
-<link rel="stylesheet" href="style.css">
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
 body{
 font-family:Poppins,sans-serif;
@@ -90,10 +94,21 @@ color:#fff;
 font-size:18px;
 font-weight:700;
 cursor:pointer;
+transition:.3s;
 }
 
 button:hover{
-opacity:.95;
+opacity:.9;
+}
+
+#status{
+margin-top:20px;
+padding:15px;
+background:rgba(255,255,255,.08);
+border-radius:12px;
+text-align:center;
+font-weight:600;
+display:none;
 }
 
 .steps{
@@ -119,7 +134,9 @@ Hey! 🎉
 
 <p class="info">
 Your account is almost ready.
-Pay a one-time activation fee of <strong>KSh 100</strong> via M-PESA to unlock full access.
+Pay a one-time activation fee of
+<strong>KSh 100</strong>
+via M-PESA to unlock full access.
 </p>
 
 <div class="price">
@@ -141,6 +158,14 @@ placeholder="0706338937">
 Pay Now
 </button>
 
+<div id="status"></div>
+
 <div class="steps">
 
-✅
+✅ Instant M-PESA STK Push<br>
+✅ Secure SwiftWallet Payment<br>
+✅ Automatic Account Activation
+
+</div>
+
+</div>
