@@ -169,3 +169,127 @@ Pay Now
 </div>
 
 </div>
+<script>
+
+const backend="https://chat-and-earn-backend.onrender.com";
+
+async function payNow(){
+
+const phone=document.getElementById("phone").value.trim();
+
+const status=document.getElementById("status");
+
+if(phone===""){
+status.style.display="block";
+status.innerHTML="❌ Please enter your M-PESA phone number.";
+return;
+}
+
+status.style.display="block";
+status.innerHTML="⏳ Sending STK Push...";
+
+try{
+
+const response=await fetch(backend+"/stkpush",{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+phone:phone
+})
+
+});
+
+const data=await response.json();
+
+if(!data.success){
+
+status.innerHTML="❌ "+(data.message||"Unable to send STK Push.");
+
+return;
+
+}
+
+status.innerHTML="📲 STK Push sent successfully.<br>Please check your phone and enter your M-PESA PIN.";
+
+const reference=data.reference;
+
+pollPayment(reference);
+
+}catch(error){
+
+console.log(error);
+
+status.innerHTML="❌ Could not connect to the payment server.";
+
+}
+
+}
+
+function pollPayment(reference){
+
+const status=document.getElementById("status");
+
+const interval=setInterval(async()=>{
+
+try{
+
+const response=await fetch(
+backend+"/payment-status/"+reference
+);
+
+const result=await response.json();
+
+if(result.success){
+
+const payment=result.payment;
+
+if(payment.status==="completed"){
+
+clearInterval(interval);
+
+status.innerHTML="✅ Payment successful.<br>Redirecting...";
+
+setTimeout(()=>{
+
+window.location.href="dashboard.html";
+
+},2000);
+
+}
+
+if(payment.status==="failed"){
+
+clearInterval(interval);
+
+status.innerHTML="❌ Payment failed.";
+
+}
+
+if(payment.status==="cancelled"){
+
+clearInterval(interval);
+
+status.innerHTML="⚠️ Payment cancelled.";
+
+}
+
+}
+
+}catch(err){
+
+console.log(err);
+
+}
+
+},5000);
+
+}
+
+</script>
+</body>
+</html>
