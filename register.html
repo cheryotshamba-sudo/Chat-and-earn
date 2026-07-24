@@ -1,394 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create Account</title>
+<title>Activate Account</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-
 *{
+margin:0;
+padding:0;
 box-sizing:border-box;
 }
 
 body{
-
-margin:0;
-padding:25px 15px;
-background:#120912;
-font-family:Arial,sans-serif;
-color:white;
-
+font-family:Poppins,sans-serif;
+background:linear-gradient(135deg,#090214,#18042e,#26063d);
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+padding:20px;
+color:#fff;
 }
-
-
-.container{
-
-max-width:430px;
-margin:auto;
-
-}
-
-
-h1{
-
-text-align:center;
-font-size:30px;
-font-weight:600;
-margin:15px 0 35px;
-
-background:linear-gradient(90deg,#ff4da6,#ffffff);
--webkit-background-clip:text;
-color:transparent;
-
-}
-
-
 
 .card{
-
-background:#190d18;
-padding:35px 25px;
-border-radius:20px;
-
-}
-
-
-
-label{
-
-display:block;
-margin-top:25px;
-margin-bottom:10px;
-
-font-size:17px;
-font-weight:bold;
-letter-spacing:.5px;
-
-color:#cbb9ca;
-
-}
-
-
-
-input,select{
-
 width:100%;
-height:70px;
-
-padding:0 22px;
-
-background:#120912;
-
-border:2px solid #64204c;
-
-border-radius:14px;
-
-color:white;
-
-font-size:18px;
-
-outline:none;
-
+max-width:420px;
+background:rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.08);
+border-radius:25px;
+padding:30px;
+backdrop-filter:blur(12px);
 }
 
-
-
-input::placeholder{
-
-color:#817080;
-
+h1{
+font-size:30px;
+margin-bottom:10px;
 }
 
-
-
-select{
-
-appearance:auto;
-
+.greeting{
+color:#ff89c8;
+font-weight:600;
+margin-bottom:20px;
 }
-
-
-
-small{
-
-display:block;
-
-margin-top:12px;
-
-font-size:16px;
-
-line-height:1.8;
-
-color:#b59caf;
-
-}
-
-
 
 .info{
-
-margin-top:30px;
-
-background:#15231f;
-
-border:1px solid #1c6855;
-
-padding:20px;
-
-border-radius:14px;
-
-font-size:17px;
-
-line-height:1.8;
-
-color:#7ff1c1;
-
+line-height:1.7;
+color:#ddd;
+margin-bottom:30px;
 }
 
+.price{
+background:rgba(255,255,255,.08);
+padding:20px;
+border-radius:18px;
+text-align:center;
+margin-bottom:25px;
+}
 
+.price h2{
+font-size:38px;
+color:#ff5ab5;
+}
+
+label{
+display:block;
+margin-bottom:10px;
+font-weight:600;
+}
+
+input{
+width:100%;
+padding:15px;
+border:none;
+border-radius:12px;
+font-size:16px;
+margin-bottom:25px;
+outline:none;
+}
 
 button{
-
 width:100%;
-
-height:65px;
-
-margin-top:30px;
-
+padding:16px;
 border:none;
-
-border-radius:15px;
-
-background:#e92791;
-
-color:white;
-
-font-size:19px;
-
-font-weight:bold;
-
+border-radius:40px;
+background:linear-gradient(90deg,#ff2f92,#ff5ab5);
+color:#fff;
+font-size:18px;
+font-weight:700;
 cursor:pointer;
-
-box-shadow:0 0 25px rgba(233,39,145,.6);
-
+transition:.3s;
 }
 
+button:hover{
+opacity:.9;
+}
 
-
-.login{
-
+#status{
+display:none;
+margin-top:20px;
+padding:15px;
+background:rgba(255,255,255,.08);
+border-radius:12px;
 text-align:center;
-
-margin-top:30px;
-
-font-size:17px;
-
-color:#bcaabc;
-
+font-weight:600;
 }
 
-
-
-.login span{
-
-color:#ff5aad;
-
+.steps{
+margin-top:25px;
+line-height:2;
+color:#ddd;
+font-size:15px;
 }
-
-
-
 </style>
 
 </head>
 
-
 <body>
-
-
-<div class="container">
-
-
-<h1>Create Account</h1>
-
 
 <div class="card">
 
+<h1>Activate Your Account</h1>
 
+<p class="greeting">
+Hey! 🎉
+</p>
 
-<label>FULL NAME *</label>
+<p class="info">
+Your account is almost ready.
+Pay a one-time activation fee of
+<strong>KSh 10</strong>
+via M-PESA to unlock full access.
+</p>
 
-<input id="name" type="text" placeholder="Enter your full name">
-
-
-
-<label>M-PESA PHONE NUMBER *</label>
-
-<input id="phone" type="tel" placeholder="0712345678">
-
-<small>
-This number will be used for M-Pesa activation & withdrawals
-</small>
-
-
-
-<label>AGE *</label>
-
-<input id="age" type="number" placeholder="Enter your age">
-
-
-
-<label>GENDER *</label>
-
-<select id="gender">
-
-<option>Select gender</option>
-
-<option>Male</option>
-
-<option>Female</option>
-
-</select>
-
-
-
-<label>COUNTRY *</label>
-
-<select id="country">
-
-<option>Kenya</option>
-
-<option>Uganda</option>
-
-<option>Tanzania</option>
-
-</select>
-
-
-
-<label>PASSWORD *</label>
-
-<input id="password" type="password" placeholder="Min 6 characters">
-
-
-
-<label>CONFIRM PASSWORD *</label>
-
-<input id="confirm" type="password" placeholder="Repeat password">
-
-
-
-
-
-<div class="info">
-
-ⓘ After registration you will be asked to pay a 
-one-time activation fee of 
-<b>Ksh 100 via M-Pesa</b>
-to unlock your account and start chatting.
-
+<div class="price">
+<p>One-time Activation Fee</p>
+<h2>KSh 10</h2>
 </div>
 
+<label>M-PESA Phone Number</label>
 
+<input
+type="tel"
+id="phone"
+placeholder="07XXXXXXXX">
 
-
-<button onclick="continuePayment()">
-
-👤 Create Account & Continue
-
+<button onclick="payNow()">
+Pay KSh 10
 </button>
 
+<div id="status"></div>
 
-
-
-<div class="login">
-
-Already have an account?
-
-<span>Login here</span>
-
-</div>
-
-
-
+<div class="steps">
+✅ Instant M-PESA STK Push<br>
+✅ Secure AUTOPAY Payment<br>
+✅ Automatic Account Activation
 </div>
 
 </div>
-
-
-
-
-
-<script>
-
-function continuePayment(){
-
-
-let name=document.getElementById("name").value;
-
-let phone=document.getElementById("phone").value;
-
-let age=document.getElementById("age").value;
-
-let gender=document.getElementById("gender").value;
-
-let password=document.getElementById("password").value;
-
-let confirm=document.getElementById("confirm").value;
-
-
-
-if(name=="" || phone=="" || age=="" || password=="" || confirm==""){
-
-alert("Please fill all fields");
-
-return;
-
-}
-
-
-
-if(password.length < 6){
-
-alert("Password must be at least 6 characters");
-
-return;
-
-}
-
-
-
-if(password!==confirm){
-
-alert("Passwords do not match");
-
-return;
-
-}
-
-
-
-localStorage.setItem("name",name);
-
-localStorage.setItem("phone",phone);
-
-localStorage.setItem("age",age);
-
-localStorage.setItem("gender",gender);
-
-
-
-window.location.href="activate.html";
-
-
-}
-
-
-</script>
-
-
-
-</body>
-</html>
