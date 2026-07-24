@@ -161,3 +161,98 @@ Pay KSh 10
 </div>
 
 </div>
+<script>
+
+const backend = "https://chat-and-earn-backend.onrender.com";
+
+async function payNow() {
+
+    const phone = document.getElementById("phone").value.trim();
+    const status = document.getElementById("status");
+
+    if (!phone) {
+        status.style.display = "block";
+        status.innerHTML = "❌ Please enter your M-PESA phone number.";
+        return;
+    }
+
+    status.style.display = "block";
+    status.innerHTML = "⏳ Sending STK Push...";
+
+    try {
+
+        const response = await fetch(backend + "/pay", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                phone: phone,
+                amount: 10
+            })
+        });
+
+        const data = await response.json();
+
+        if (!data.success) {
+            status.innerHTML = "❌ " + (data.message || "Failed to send STK Push.");
+            return;
+        }
+
+        status.innerHTML =
+            "📲 STK Push sent successfully.<br><br>Please check your phone and enter your M-PESA PIN.";
+
+        pollPayment(data.checkoutRequestId);
+
+    } catch (err) {
+        console.log(err);
+        status.innerHTML = "❌ Unable to connect to the payment server.";
+    }
+
+}
+
+function pollPayment(checkoutRequestId) {
+
+    const status = document.getElementById("status");
+
+    const interval = setInterval(async () => {
+
+        try {
+
+            const response = await fetch(backend + "/check-status", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    checkoutRequestId: checkoutRequestId
+                })
+            });
+
+            const result = await response.json();
+
+            if (result.success && result.status === "completed") {
+
+                clearInterval(interval);
+
+                status.innerHTML =
+                    "✅ Payment received successfully.<br>Redirecting...";
+
+                setTimeout(() => {
+                    window.location.href = "dashboard.html";
+                }, 2000);
+
+            }
+
+        } catch (err) {
+            console.log(err);
+        }
+
+    }, 5000);
+
+}
+
+</script>
+
+</body>
+</html>
