@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -9,112 +11,109 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 body{
-font-family:Poppins,sans-serif;
-background:linear-gradient(135deg,#090214,#18042e,#26063d);
-display:flex;
-justify-content:center;
-align-items:center;
-min-height:100vh;
-padding:20px;
-color:#fff;
+    font-family:Poppins,sans-serif;
+    background:linear-gradient(135deg,#090214,#18042e,#26063d);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px;
+    color:#fff;
 }
 
 .card{
-width:100%;
-max-width:420px;
-background:rgba(255,255,255,.06);
-border:1px solid rgba(255,255,255,.08);
-border-radius:25px;
-padding:30px;
-backdrop-filter:blur(12px);
+    width:100%;
+    max-width:420px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:25px;
+    padding:30px;
+    backdrop-filter:blur(12px);
 }
 
 h1{
-font-size:30px;
-margin-bottom:10px;
-}
-
-.greeting{
-color:#ff89c8;
-font-weight:600;
-margin-bottom:20px;
+    font-size:30px;
+    margin-bottom:20px;
 }
 
 .info{
-line-height:1.7;
-color:#ddd;
-margin-bottom:30px;
+    line-height:1.7;
+    color:#ddd;
+    margin-bottom:30px;
 }
 
 .price{
-background:rgba(255,255,255,.08);
-padding:20px;
-border-radius:18px;
-text-align:center;
-margin-bottom:25px;
+    background:rgba(255,255,255,.08);
+    padding:20px;
+    border-radius:18px;
+    text-align:center;
+    margin-bottom:25px;
 }
 
 .price h2{
-font-size:38px;
-color:#ff5ab5;
+    font-size:38px;
+    color:#ff5ab5;
 }
 
 label{
-display:block;
-margin-bottom:10px;
-font-weight:600;
+    display:block;
+    margin-bottom:10px;
+    font-weight:600;
 }
 
 input{
-width:100%;
-padding:15px;
-border:none;
-border-radius:12px;
-font-size:16px;
-margin-bottom:25px;
-outline:none;
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    font-size:16px;
+    margin-bottom:25px;
+    outline:none;
 }
 
 button{
-width:100%;
-padding:16px;
-border:none;
-border-radius:40px;
-background:linear-gradient(90deg,#ff2f92,#ff5ab5);
-color:#fff;
-font-size:18px;
-font-weight:700;
-cursor:pointer;
-transition:.3s;
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:40px;
+    background:linear-gradient(90deg,#ff2f92,#ff5ab5);
+    color:#fff;
+    font-size:18px;
+    font-weight:700;
+    cursor:pointer;
 }
 
-button:hover{
-opacity:.9;
+button:disabled{
+    opacity:.6;
+    cursor:not-allowed;
 }
 
 #status{
-display:none;
-margin-top:20px;
-padding:15px;
-background:rgba(255,255,255,.08);
-border-radius:12px;
-text-align:center;
-font-weight:600;
+    display:none;
+    margin-top:20px;
+    padding:15px;
+    background:rgba(255,255,255,.08);
+    border-radius:12px;
+    text-align:center;
+    font-weight:600;
+    line-height:1.6;
 }
 
 .steps{
-margin-top:25px;
-line-height:2;
-color:#ddd;
-font-size:15px;
+    margin-top:25px;
+    line-height:2;
+    color:#ddd;
+    font-size:15px;
 }
+
 </style>
 
 </head>
@@ -125,134 +124,413 @@ font-size:15px;
 
 <h1>Activate Your Account</h1>
 
-<p class="greeting">
-
-</p>
-
 <p class="info">
+
 Your account is almost ready.
+
 Pay a one-time activation fee of
-<strong>KSh 10</strong>
+<strong>KSh 100</strong>
 via M-PESA to unlock full access.
+
 </p>
 
 <div class="price">
+
 <p>One-time Activation Fee</p>
+
 <h2>KSh 100</h2>
+
 </div>
 
 <label>M-PESA Phone Number</label>
 
 <input
-type="tel"
-id="phone"
-placeholder="07XXXXXXXX">
+    type="tel"
+    id="phone"
+    placeholder="07XXXXXXXX"
+    autocomplete="tel"
+>
 
-<button onclick="payNow()">
+<button
+    id="payBtn"
+    onclick="payNow()"
+>
 Pay KSh 100
 </button>
 
 <div id="status"></div>
 
 <div class="steps">
+
 ✅ Instant M-PESA STK Push<br>
-✅ Secured Payment<br>
+✅ Secure Paylor Payment<br>
 ✅ Automatic Account Activation
+
 </div>
 
 </div>
+
 <script>
 
-const backend = "https://chat-and-earn-backend.onrender.com";
+const backend =
+    "https://chat-and-earn-backend.onrender.com";
 
-async function payNow() {
+const paymentAmount = 100;
 
-    const phone = document.getElementById("phone").value.trim();
-    const status = document.getElementById("status");
 
-    if (!phone) {
+// ======================================================
+// PAY NOW
+// ======================================================
+
+async function payNow(){
+
+    const phone =
+        document.getElementById("phone")
+        .value
+        .trim();
+
+    const status =
+        document.getElementById("status");
+
+    const button =
+        document.getElementById("payBtn");
+
+
+    // --------------------------------------------------
+    // Validate phone
+    // --------------------------------------------------
+
+    if(!phone){
+
         status.style.display = "block";
-        status.innerHTML = "❌ Please enter your M-PESA phone number.";
-        return;
-    }
-
-    status.style.display = "block";
-    status.innerHTML = "⏳ Sending STK Push...";
-
-    try {
-
-        const response = await fetch(backend + "/pay", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                phone: phone,
-                amount: 10
-            })
-        });
-
-        const data = await response.json();
-
-        if (!data.success) {
-            status.innerHTML = "❌ " + (data.message || "Failed to send STK Push.");
-            return;
-        }
 
         status.innerHTML =
-            "📲 STK Push sent successfully.<br><br>Please check your phone and enter your M-PESA PIN.";
+            "❌ Please enter your M-PESA phone number.";
 
-        pollPayment(data.checkoutRequestId);
+        return;
 
-    } catch (err) {
-        console.log(err);
-        status.innerHTML = "❌ Unable to connect to the payment server.";
+    }
+
+
+    // --------------------------------------------------
+    // Disable button
+    // --------------------------------------------------
+
+    button.disabled = true;
+
+    button.innerHTML =
+        "Sending STK Push...";
+
+    status.style.display = "block";
+
+    status.innerHTML =
+        "⏳ Sending payment request to your phone...";
+
+
+    try{
+
+        // --------------------------------------------------
+        // Send STK Push
+        // --------------------------------------------------
+
+        const response =
+            await fetch(
+                backend + "/stkpush",
+                {
+                    method:"POST",
+
+                    headers:{
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body:JSON.stringify({
+
+                        phone:phone
+
+                    })
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        console.log(
+            "STK RESPONSE:",
+            data
+        );
+
+
+        // --------------------------------------------------
+        // STK failed
+        // --------------------------------------------------
+
+        if(!response.ok || !data.success){
+
+            throw new Error(
+                data.message ||
+                "Failed to send STK Push."
+            );
+
+        }
+
+
+        // --------------------------------------------------
+        // Get reference
+        // --------------------------------------------------
+
+        const reference =
+            data.reference;
+
+
+        if(!reference){
+
+            throw new Error(
+                "No payment reference was returned."
+            );
+
+        }
+
+
+        // Save reference
+        localStorage.setItem(
+            "activationReference",
+            reference
+        );
+
+
+        // --------------------------------------------------
+        // STK sent
+        // --------------------------------------------------
+
+        button.innerHTML =
+            "Waiting for Payment...";
+
+
+        status.innerHTML =
+            "📲 STK Push sent successfully.<br><br>" +
+            "Please check your phone and enter your M-PESA PIN.";
+
+
+        // --------------------------------------------------
+        // Start checking payment
+        // --------------------------------------------------
+
+        pollPayment(reference);
+
+
+    }catch(error){
+
+        console.error(
+            "PAYMENT ERROR:",
+            error
+        );
+
+
+        status.innerHTML =
+            "❌ " +
+            (
+                error.message ||
+                "Unable to send payment request."
+            );
+
+
+        button.disabled = false;
+
+        button.innerHTML =
+            "Pay KSh 100";
+
     }
 
 }
 
-function pollPayment(checkoutRequestId) {
 
-    const status = document.getElementById("status");
+// ======================================================
+// CHECK PAYMENT
+// ======================================================
 
-    const interval = setInterval(async () => {
+function pollPayment(reference){
 
-        try {
+    const status =
+        document.getElementById("status");
 
-            const response = await fetch(backend + "/check-status", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    checkoutRequestId: checkoutRequestId
-                })
-            });
+    const button =
+        document.getElementById("payBtn");
 
-            const result = await response.json();
 
-            if (result.success && result.status === "completed") {
+    let attempts = 0;
 
-                clearInterval(interval);
+    const maxAttempts = 60;
 
-                status.innerHTML =
-                    "✅ Payment received successfully.<br>Redirecting...";
 
-                setTimeout(() => {
-                    window.location.href = "dashboard.html";
-                }, 2000);
+    const interval =
+        setInterval(async()=>{
+
+            attempts++;
+
+
+            try{
+
+                const response =
+                    await fetch(
+                        backend +
+                        "/payment-status/" +
+                        encodeURIComponent(reference)
+                    );
+
+
+                const result =
+                    await response.json();
+
+
+                console.log(
+                    "PAYMENT STATUS:",
+                    result
+                );
+
+
+                if(!result.success){
+
+                    return;
+
+                }
+
+
+                const payment =
+                    result.payment || {};
+
+
+                const paymentStatus =
+                    String(
+                        payment.status ||
+                        result.status ||
+                        ""
+                    ).toUpperCase();
+
+
+                // --------------------------------------------------
+                // PAYMENT SUCCESSFUL
+                // --------------------------------------------------
+
+                if(
+                    paymentStatus === "COMPLETED" ||
+                    paymentStatus === "SUCCESS" ||
+                    paymentStatus === "PAID"
+                ){
+
+                    clearInterval(interval);
+
+
+                    status.innerHTML =
+                        "✅ Payment received successfully.<br>" +
+                        "Redirecting...";
+
+
+                    setTimeout(()=>{
+
+                        window.location.href =
+                            "dashboard.html";
+
+                    },2000);
+
+
+                    return;
+
+                }
+
+
+                // --------------------------------------------------
+                // PAYMENT FAILED
+                // --------------------------------------------------
+
+                if(
+                    paymentStatus === "FAILED" ||
+                    paymentStatus === "FAIL"
+                ){
+
+                    clearInterval(interval);
+
+
+                    status.innerHTML =
+                        "❌ Payment failed. Please try again.";
+
+
+                    button.disabled = false;
+
+                    button.innerHTML =
+                        "Pay KSh 100";
+
+
+                    return;
+
+                }
+
+
+                // --------------------------------------------------
+                // PAYMENT CANCELLED
+                // --------------------------------------------------
+
+                if(
+                    paymentStatus === "CANCELLED" ||
+                    paymentStatus === "CANCELED"
+                ){
+
+                    clearInterval(interval);
+
+
+                    status.innerHTML =
+                        "⚠️ Payment was cancelled. Please try again.";
+
+
+                    button.disabled = false;
+
+                    button.innerHTML =
+                        "Pay KSh 100";
+
+
+                    return;
+
+                }
+
+
+                // --------------------------------------------------
+                // TIMEOUT
+                // --------------------------------------------------
+
+                if(attempts >= maxAttempts){
+
+                    clearInterval(interval);
+
+
+                    status.innerHTML =
+                        "⏳ Payment confirmation is taking longer than expected. Please check your M-PESA messages before trying again.";
+
+
+                    button.disabled = false;
+
+                    button.innerHTML =
+                        "Pay KSh 100";
+
+                }
+
+
+            }catch(error){
+
+                console.log(
+                    "STATUS ERROR:",
+                    error
+                );
 
             }
 
-        } catch (err) {
-            console.log(err);
-        }
-
-    }, 5000);
+        },5000);
 
 }
 
 </script>
 
 </body>
+
 </html>
