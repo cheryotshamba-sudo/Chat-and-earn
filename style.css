@@ -1,25 +1,26 @@
-/* ==============================
-   GLOBALLINK KENYA
-   CHAT • LEARN • EARN
-   ============================== */
-
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg, #fff0f6, #ffffff);
-    color: #222;
-    min-height: 100vh;
+    background: #000000 !important;
+    color: #ffffff;
 }
 
 .page {
     width: 100%;
     min-height: 100vh;
-    padding: 18px 12px;
+    padding: 8px 10px;
+    background: #000000 !important;
 }
 
 .container {
@@ -28,363 +29,374 @@ body {
     margin: 0 auto;
 }
 
-/* ==============================
-   HEADER
-   ============================== */
+
+/* HEADER */
 
 .header {
     text-align: center;
-    margin-bottom: 18px;
+    margin-bottom: 8px;
 }
 
 .logo {
-    width: 72px;
-    height: 72px;
-    margin: 0 auto 10px;
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 4px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    background: #E91E63;
+    background: #ff2b8a;
     border-radius: 50%;
 
-    font-size: 40px;
-
-    box-shadow: 0 8px 22px rgba(233, 30, 99, 0.25);
+    font-size: 27px;
 }
 
 .header h1 {
-    color: #E91E63;
-    font-size: 29px;
+    color: #ff2b8a;
+    font-size: 24px;
     font-weight: 900;
-    margin-bottom: 7px;
+    margin-bottom: 3px;
 }
 
 .tagline {
     display: inline-block;
 
-    background: #E91E63;
+    background: #ff2b8a;
     color: #ffffff;
 
-    padding: 7px 15px;
-    border-radius: 30px;
+    padding: 4px 10px;
+    border-radius: 20px;
 
-    font-size: 13px;
+    font-size: 11px;
     font-weight: 900;
-    letter-spacing: 1px;
 
-    margin-bottom: 10px;
+    margin-bottom: 4px;
 }
 
 .header p {
-    max-width: 430px;
-    margin: 0 auto;
+    color: #ffffff;
+    font-size: 12px;
+    line-height: 1.25;
 
-    color: #555;
-    font-size: 15px;
-    line-height: 1.5;
+    max-width: 420px;
+    margin: 0 auto;
 }
 
-/* ==============================
-   CARD
-   ============================== */
+
+/* CARD */
 
 .card {
-    background: #ffffff;
+    background: #111111;
 
-    padding: 22px 18px;
+    padding: 12px 14px;
 
-    border-radius: 18px;
+    border-radius: 15px;
 
-    border: 1px solid #f7d5e2;
-
-    box-shadow:
-        0 8px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #333333;
 }
 
 .card h2 {
     text-align: center;
 
-    color: #222;
+    color: #ffffff;
 
-    font-size: 22px;
+    font-size: 19px;
     font-weight: 900;
 
-    margin-bottom: 5px;
+    margin-bottom: 2px;
 }
 
 .intro {
     text-align: center;
 
-    color: #777;
+    color: #bbbbbb;
 
-    font-size: 14px;
+    font-size: 12px;
 
-    margin-bottom: 18px;
+    margin-bottom: 8px;
 }
 
-/* ==============================
-   FORM
-   ============================== */
+
+/* FORM */
 
 .field {
-    margin-bottom: 14px;
+    margin-bottom: 7px;
 }
 
 label {
     display: block;
 
-    color: #333;
+    color: #ffffff;
 
-    font-size: 15px;
-    font-weight: 800;
+    font-size: 13px;
+    font-weight: 900;
 
-    margin-bottom: 7px;
+    margin-bottom: 3px;
 }
 
 input,
 select {
     width: 100%;
-    height: 52px;
 
-    padding: 0 14px;
+    height: 42px;
+
+    padding: 0 11px;
 
     background: #ffffff;
 
-    border: 2px solid #eeeeee;
-    border-radius: 11px;
+    border: 2px solid #555555;
 
-    color: #222;
+    border-radius: 9px;
 
-    font-size: 16px;
+    color: #000000;
+
+    font-size: 15px;
+    font-weight: 600;
 
     outline: none;
-
-    transition: 0.2s ease;
 }
 
 input::placeholder {
-    color: #999;
+    color: #777777;
 }
 
 input:focus,
 select:focus {
-    border-color: #E91E63;
+    border-color: #ff2b8a;
 
     box-shadow:
-        0 0 0 3px rgba(233, 30, 99, 0.10);
+        0 0 0 2px rgba(255, 43, 138, 0.2);
 }
 
-/* ==============================
-   MAIN BUTTONS
-   ============================== */
 
-button {
-    font-family: Arial, Helvetica, sans-serif;
-}
+/* CONTINUE BUTTON */
 
-.continue-btn,
-.interests-btn {
+.continue-btn {
     width: 100%;
-    height: 58px;
 
-    margin-top: 8px;
+    height: 50px;
 
-    background: #E91E63;
+    margin-top: 5px;
+
+    background: #ff2b8a;
+
     color: #ffffff;
 
     border: none;
-    border-radius: 12px;
 
-    font-size: 20px;
+    border-radius: 10px;
+
+    font-size: 19px;
+
     font-weight: 900;
-
-    letter-spacing: 0.4px;
 
     cursor: pointer;
 
-    box-shadow:
-        0 7px 18px rgba(233, 30, 99, 0.28);
-
-    transition: 0.2s ease;
-}
-
-.continue-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
+
+    gap: 10px;
+
+    box-shadow:
+        0 5px 15px rgba(255, 43, 138, 0.3);
 }
 
 .continue-btn span {
-    font-size: 25px;
+    font-size: 24px;
     font-weight: 900;
 }
 
-.continue-btn:hover,
-.interests-btn:hover {
-    background: #C2185B;
-}
-
-.continue-btn:active,
-.interests-btn:active {
+.continue-btn:active {
     transform: scale(0.98);
 }
 
-.continue-btn:disabled,
-.interests-btn:disabled {
+.continue-btn:disabled {
     opacity: 0.7;
-    cursor: not-allowed;
 }
 
-/* ==============================
-   INTERESTS
-   ============================== */
+
+/* INTERESTS
+   2 ITEMS PER ROW
+*/
 
 .interests {
     display: grid;
 
     grid-template-columns: 1fr 1fr;
 
-    gap: 10px;
+    gap: 9px;
 
-    margin-top: 15px;
+    width: 100%;
+
+    padding: 5px 0 8px;
+
+    overflow: visible;
 }
+
+
+/* EACH INTEREST */
 
 .interest {
-    min-height: 58px;
+    width: 100%;
+    min-height: 52px;
 
     display: flex;
+
     align-items: center;
+    justify-content: center;
 
-    gap: 8px;
+    gap: 6px;
 
-    padding: 11px;
+    padding: 8px 6px;
 
-    background: #ffffff;
+    background: #111111;
 
-    border: 2px solid #f1d5df;
-    border-radius: 12px;
+    border: 2px solid #444444;
 
-    color: #333;
+    border-radius: 10px;
 
-    font-size: 14px;
-    font-weight: 800;
+    color: #ffffff;
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    text-align: center;
 
     cursor: pointer;
-
-    transition: 0.2s ease;
 }
 
-.interest:hover {
-    border-color: #E91E63;
-    background: #fff5f8;
-}
+
+/* CHECKBOX */
 
 .interest input {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
 
     margin: 0;
 
-    accent-color: #E91E63;
+    flex-shrink: 0;
 
-    cursor: pointer;
+    accent-color: #ff2b8a;
 }
 
-/* Selected interest */
+
+/* SELECTED INTEREST */
 
 .interest:has(input:checked) {
-    border-color: #E91E63;
-    background: #FCE4EC;
-    color: #E91E63;
+    background: #ff2b8a;
+
+    border-color: #ff2b8a;
+
+    color: #ffffff;
 }
 
-.interest-note {
-    text-align: center;
 
-    color: #777;
+/* INTEREST CONTINUE */
 
-    font-size: 13px;
+.interests-btn {
+    width: 100%;
 
-    margin-bottom: 15px;
+    height: 52px;
+
+    margin-top: 8px;
+
+    background: #ff2b8a;
+
+    color: #ffffff;
+
+    border: none;
+
+    border-radius: 10px;
+
+    font-size: 19px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 15px rgba(255, 43, 138, 0.3);
 }
 
-/* ==============================
-   FOOTER
-   ============================== */
+.interests-btn:active {
+    transform: scale(0.98);
+}
+
+
+/* FOOTER */
 
 .footer {
     text-align: center;
 
-    padding: 18px 5px;
+    padding: 7px 5px;
 }
 
 .footer p {
-    color: #888;
+    color: #ffffff;
 
-    font-size: 13px;
+    font-size: 11px;
+
     font-weight: 700;
 }
 
-/* ==============================
-   MOBILE
-   ============================== */
 
-@media (max-width: 480px) {
+/* SMALL PHONES */
+
+@media (max-width: 360px) {
 
     .page {
-        padding: 14px 10px;
+        padding: 5px 8px;
+    }
+
+    .logo {
+        width: 42px;
+        height: 42px;
+
+        font-size: 23px;
     }
 
     .header h1 {
-        font-size: 27px;
+        font-size: 22px;
     }
 
     .header p {
-        font-size: 14px;
+        font-size: 11px;
     }
 
     .card {
-        padding: 20px 15px;
-        border-radius: 16px;
+        padding: 10px 12px;
     }
 
     input,
     select {
-        height: 51px;
-        font-size: 16px;
+        height: 39px;
+        font-size: 14px;
     }
 
-    .continue-btn,
-    .interests-btn {
-        height: 58px;
-        font-size: 20px;
-    }
-}
-
-/* ==============================
-   SMALL PHONES
-   ============================== */
-
-@media (max-width: 360px) {
-
-    .header h1 {
-        font-size: 24px;
+    .field {
+        margin-bottom: 5px;
     }
 
-    .logo {
-        width: 65px;
-        height: 65px;
-        font-size: 35px;
+    label {
+        font-size: 12px;
     }
 
-    .card {
-        padding: 18px 13px;
+    .continue-btn {
+        height: 47px;
+        font-size: 18px;
     }
 
-    .interests {
-        grid-template-columns: 1fr;
+    .interest {
+        min-height: 48px;
+        font-size: 11px;
+        padding: 6px 4px;
+    }
+
+    .interest input {
+        width: 16px;
+        height: 16px;
     }
 }
