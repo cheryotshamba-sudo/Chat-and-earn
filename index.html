@@ -1,107 +1,206 @@
-<h3>Carlos Santos, 28</h3>
-<p>🇧🇷 Brazil</p>
-<small>Football Coach</small>
-<a href="activate.html" class="chat-btn">Chat</a>
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>GlobalLink Kenya | Chat & Earn</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head><body><div class="page">
+
+    <div class="container">
+
+        <div class="header">
+
+            <div class="logo">🌍</div>
+
+            <h1>GlobalLink Kenya</h1>
+
+            <div class="tagline">
+                CHAT • LEARN • EARN
+            </div>
+
+            <p>
+                Connect with people from around the world,
+                practice Kiswahili, make new friends and earn
+                from your conversations.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Create Your Profile</h2>
+
+            <p class="intro">
+                Register below to get started.
+            </p>
+
+            <form id="registrationForm">
+
+                <div class="field">
+                    <label for="fullname">Full Name</label>
+
+                    <input
+                        type="text"
+                        id="fullname"
+                        placeholder="Enter your full name"
+                        autocomplete="name"
+                        required
+                    >
+                </div>
+
+                <div class="field">
+                    <label for="age">Age</label>
+
+                    <input
+                        type="number"
+                        id="age"
+                        placeholder="18 - 99"
+                        min="18"
+                        max="99"
+                        required
+                    >
+                </div>
+
+                <div class="field">
+                    <label for="gender">Gender</label>
+
+                    <select id="gender" required>
+                        <option value="">Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="county">County</label>
+
+                    <select id="county" required>
+                        <option value="">Select County</option>
+                        <option>Nairobi</option>
+                        <option>Mombasa</option>
+                        <option>Kisumu</option>
+                        <option>Nakuru</option>
+                        <option>Uasin Gishu</option>
+                        <option>Kiambu</option>
+                        <option>Machakos</option>
+                        <option>Kakamega</option>
+                        <option>Meru</option>
+                        <option>Nyeri</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="city">City / Town</label>
+
+                    <input
+                        type="text"
+                        id="city"
+                        placeholder="Enter your town"
+                        required
+                    >
+                </div>
+
+                <div class="field">
+                    <label for="phone">Phone Number</label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="07XXXXXXXX"
+                        inputmode="numeric"
+                        autocomplete="tel"
+                        required
+                    >
+                </div>
+
+                <button
+                    type="submit"
+                    class="continue-btn"
+                    id="continueBtn"
+                >
+                    CONTINUE
+                    <span>→</span>
+                </button>
+
+            </form>
+
+        </div>
+
+        <div class="footer">
+            <p>
+                🌍 Connect globally • 💬 Chat • 💰 Earn
+            </p>
+        </div>
+
+    </div>
+
 </div>
 
-<div class="profile-card">
-<img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Profile">
-<h3>Isabella Rodriguez, 27</h3>
-<p>🇪🇸 Spain</p>
-<small>Chef</small>
-<a href="activate.html" class="chat-btn">Chat</a>
-</div>
+<script>
 
-</div>
+    const form = document.getElementById("registrationForm");
+    const button = document.getElementById("continueBtn");
 
-</section>
-  <!-- Testimonials -->
+    form.addEventListener("submit", function(e) {
 
-<section class="testimonials">
+        e.preventDefault();
 
-<h2>What Our Members Say</h2>
+        const fullname =
+            document.getElementById("fullname").value.trim();
 
-<p class="subtitle">
-Hear from members who have enjoyed meaningful conversations on Chat and Earn.
-</p>
+        const age =
+            document.getElementById("age").value;
 
-<div class="testimonial-grid">
+        const gender =
+            document.getElementById("gender").value;
 
-<div class="testimonial-card">
-<p>
-"I met amazing people from different countries and the platform is very easy to use. I enjoy every conversation."
-</p>
+        const county =
+            document.getElementById("county").value;
 
-<h4>Brian M.</h4>
-<small>🇰🇪 Nairobi, Kenya</small>
-<div class="stars">★★★★★</div>
-</div>
+        const city =
+            document.getElementById("city").value.trim();
 
-<div class="testimonial-card">
-<p>
-"The registration process was simple and I connected with friendly international members within minutes."
-</p>
+        const phone =
+            document.getElementById("phone").value.trim();
 
-<h4>Aisha W.</h4>
-<small>🇰🇪 Mombasa, Kenya</small>
-<div class="stars">★★★★★</div>
-</div>
+        if (
+            !fullname ||
+            !age ||
+            !gender ||
+            !county ||
+            !city ||
+            !phone
+        ) {
+            alert("Please complete all the required fields.");
+            return;
+        }
 
-<div class="testimonial-card">
-<p>
-"The design is beautiful, the chats are smooth, and I love meeting people from around the world."
-</p>
+        if (Number(age) < 18 || Number(age) > 99) {
+            alert("You must be between 18 and 99 years old.");
+            return;
+        }
 
-<h4>James K.</h4>
-<small>🇰🇪 Kisumu, Kenya</small>
-<div class="stars">★★★★★</div>
-</div>
+        localStorage.setItem("fullname", fullname);
+        localStorage.setItem("age", age);
+        localStorage.setItem("gender", gender);
+        localStorage.setItem("county", county);
+        localStorage.setItem("city", city);
+        localStorage.setItem("phone", phone);
 
-</div>
+        button.disabled = true;
+        button.innerHTML = "PLEASE WAIT...";
 
-</section>
-  <!-- CTA -->
+        setTimeout(function() {
 
-<section class="cta">
+            window.location.href = "interests.html";
 
-<h2>Ready to Start Earning?</h2>
+        }, 500);
 
-<p>
-Join thousands of members connecting with people from around the world.
-</p>
+    });
 
-<a href="activate.html" class="cta-btn">
-Get Started — It's Free!
-</a>
-
-</section>
-  <footer>
-
-<h2>❤️ Chat and Earn</h2>
-
-<p>
-Find meaningful connections across borders.<br>
-Your forever love could be a message away.
-</p>
-
-<div class="footer-links">
-<a href="#">Home</a>
-<a href="#">Create Account</a>
-<a href="#">Login</a>
-<a href="#">Privacy Policy</a>
-<a href="#">Contact Us</a>
-</div>
-
-<p class="copyright">
-© 2026 Chat and Earn. All rights reserved.
-</p>
-
-<p class="powered">
-Secured & powered by M-PESA
-</p>
-
-  </footer>
-<script src="script.js"></script>
+</script>
 
 </body>
 </html>
