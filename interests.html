@@ -1,270 +1,494 @@
-<!DOCTYPE html><html lang="en">
-<head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>GlobalLink Kenya | Interests</title><link rel="stylesheet" href="style.css"><style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Chat & Earn</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Mali:wght@500;600;700&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    min-height: 100%;
+}
 
 body {
     background: #000000;
     color: #ffffff;
+    font-family: 'Poppins', sans-serif;
 }
 
-.page {
-    background: #000000;
+.container {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 14px 12px 18px;
 }
 
-.header h1 {
-    color: #ff2b8a;
+
+/* HEADER */
+
+.header {
+    text-align: center;
+    margin-bottom: 15px;
 }
 
-.header p {
-    color: #ffffff;
-}
+.logo {
+    width: 56px;
+    height: 56px;
 
-.card {
-    background: #000000;
-    border: 1px solid #333333;
-    box-shadow: none;
-}
-
-.card h2 {
-    color: #ffffff;
-}
-
-.interest-note {
-    color: #cccccc;
-}
-
-/* LEFT TO RIGHT SCROLLING INTERESTS */
-
-.interests {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-
-    overflow-x: auto;
-    overflow-y: hidden;
-
-    padding: 8px 2px 15px;
-
-    scroll-behavior: smooth;
-
-    -webkit-overflow-scrolling: touch;
-
-    scrollbar-width: none;
-}
-
-.interests::-webkit-scrollbar {
-    display: none;
-}
-
-.interest {
-    flex: 0 0 auto;
-
-    min-width: 145px;
-    min-height: 58px;
+    margin: 0 auto 8px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    gap: 7px;
+    background: #00A651;
 
-    padding: 12px 15px;
+    border-radius: 50%;
 
-    background: #111111;
+    font-size: 30px;
 
-    border: 2px solid #444444;
-    border-radius: 12px;
+    box-shadow:
+        0 5px 18px rgba(0,166,81,0.25);
+}
+
+.header h1 {
+    font-family: 'Poppins', sans-serif;
 
     color: #ffffff;
 
-    font-size: 14px;
+    font-size: 30px;
+
+    line-height: 1.1;
+
     font-weight: 900;
 
-    white-space: nowrap;
-
-    cursor: pointer;
+    margin-bottom: 5px;
 }
 
-.interest:hover {
-    border-color: #ff2b8a;
+.header h1 span {
+    color: #00A651;
+}
+
+.header p {
+    font-family: 'Mali', cursive;
+
+    color: #dddddd;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+/* CARD */
+
+.card {
+    background: #111111;
+
+    border: 1px solid #2c2c2c;
+
+    border-radius: 16px;
+
+    padding: 17px 13px;
+}
+
+.card h2 {
+    color: #ffffff;
+
+    font-size: 19px;
+
+    font-weight: 900;
+
+    margin-bottom: 4px;
+}
+
+.card-description {
+    color: #999999;
+
+    font-family: 'Mali', cursive;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    margin-bottom: 14px;
+}
+
+
+/* INTERESTS */
+
+.interests {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 9px;
+
+    width: 100%;
+}
+
+
+/* INTEREST */
+
+.interest {
+    min-height: 56px;
+
+    padding: 8px 6px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 6px;
+
+    background: #000000;
+
+    border: 2px solid #333333;
+
+    border-radius: 10px;
+
+    color: #ffffff;
+
+    font-family: 'Mali', cursive;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    line-height: 1.15;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
 }
 
 .interest input {
-    width: 19px;
-    height: 19px;
-
-    margin: 0;
-
-    accent-color: #ff2b8a;
+    width: 17px;
+    height: 17px;
 
     flex-shrink: 0;
+
+    accent-color: #00A651;
 }
+
+
+/* SELECTED */
 
 .interest:has(input:checked) {
-    background: #ff2b8a;
-    border-color: #ff2b8a;
-    color: #ffffff;
+    background: #006B3F;
+
+    border-color: #00A651;
 }
 
-.interests-btn {
+
+/* CONTINUE */
+
+.continue-btn {
     width: 100%;
-    height: 60px;
 
-    margin-top: 20px;
+    height: 55px;
 
-    background: #ff2b8a;
+    margin-top: 15px;
+
+    background: #00A651;
+
     color: #ffffff;
 
     border: none;
-    border-radius: 12px;
 
-    font-size: 21px;
+    border-radius: 10px;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 18px;
+
     font-weight: 900;
 
     cursor: pointer;
 
-    box-shadow: 0 5px 20px rgba(255, 43, 138, 0.35);
+    box-shadow:
+        0 5px 15px rgba(0,166,81,0.25);
 }
 
-.interests-btn:active {
+.continue-btn:active {
     transform: scale(0.98);
 }
 
-.interests-btn:disabled {
-    opacity: 0.7;
+
+/* FOOTER */
+
+.footer {
+    text-align: center;
+
+    padding-top: 12px;
 }
 
-</style></head><body><div class="page"><div class="container"><div class="header">
+.footer p {
+    color: #777777;
 
-    <div class="logo">🌍</div>
+    font-family: 'Mali', cursive;
 
-    <h1>GlobalLink Kenya</h1>
+    font-size: 10px;
 
-    <div class="tagline">
-        CHAT • LEARN • EARN
-    </div>
+    font-weight: 600;
+}
 
-    <p>
-        Choose what you are interested in and
-        connect with the right people.
-    </p>
 
-</div>
+/* SMALL PHONES */
 
-<div class="card">
+@media (max-width: 360px) {
 
-    <form id="interestForm">
+    .container {
+        padding: 9px 9px 14px;
+    }
 
-        <h2>Select Your Interests</h2>
+    .logo {
+        width: 48px;
+        height: 48px;
+        font-size: 25px;
+    }
 
-        <p class="interest-note">
-            Swipe left or right to see more
-        </p>
+    .header h1 {
+        font-size: 26px;
+    }
 
-        <div class="interests">
+    .header p {
+        font-size: 11px;
+    }
 
-            <label class="interest">
-                <input type="checkbox" name="interest" value="Friendship">
-                🤝 Friendship
-            </label>
+    .card {
+        padding: 14px 10px;
+    }
 
-            <label class="interest">
-                <input type="checkbox" name="interest" value="Dating">
-                ❤️ Dating
-            </label>
+    .interest {
+        min-height: 51px;
+        font-size: 10px;
+    }
 
-            <label class="interest">
-                <input type="checkbox" name="interest" value="Remote Jobs">
-                💼 Remote Jobs
-            </label>
+    .interest input {
+        width: 15px;
+        height: 15px;
+    }
 
-            <label class="interest">
-                <input type="checkbox" name="interest" value="Business">
-                📈 Business
-            </label>
+    .continue-btn {
+        height: 51px;
+        font-size: 17px;
+    }
+}
 
-            <label class="interest">
-                <input type="checkbox" name="interest" value="Travel">
-                ✈️ Travel
-            </label>
+</style>
 
-            <label class="interest">
-                <input type="checkbox" name="interest" value="Language Exchange">
-                🗣️ Language Exchange
-            </label>
+</head>
 
-            <label class="interest">
-                <input type="checkbox" name="interest" value="Teaching Kiswahili">
-                📚 Teaching Kiswahili
-            </label>
+<body>
 
-            <label class="interest">
-                <input type="checkbox" name="interest" value="International Networking">
-                🌍 International Networking
-            </label>
 
-            <label class="interest">
-                <input type="checkbox" name="interest" value="Earn Money Online">
-                💰 Earn Money Online
-            </label>
+<div class="container">
 
-            <label class="interest">
-                <input type="checkbox" name="interest" value="Culture">
-                🎭 Culture
-            </label>
 
+    <div class="header">
+
+        <div class="logo">
+            🌍
         </div>
 
-        <button
-            type="submit"
-            class="interests-btn"
-            id="interestButton"
-        >
-            CONTINUE →
-        </button>
+        <h1>
+            Chat <span>&</span> Earn
+        </h1>
 
-    </form>
+        <p>
+            Select your interests
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>
+            Select Your Interests
+        </h2>
+
+        <p class="card-description">
+            Choose what you would like to connect and earn from.
+        </p>
+
+
+        <form id="interestForm">
+
+
+            <div class="interests">
+
+
+                <label class="interest">
+                    <input type="checkbox"
+                           name="interest"
+                           value="Friendship">
+                    🤝 Friendship
+                </label>
+
+
+                <label class="interest">
+                    <input type="checkbox"
+                           name="interest"
+                           value="Dating">
+                    ❤️ Dating
+                </label>
+
+
+                <label class="interest">
+                    <input type="checkbox"
+                           name="interest"
+                           value="Remote Jobs">
+                    💼 Remote Jobs
+                </label>
+
+
+                <label class="interest">
+                    <input type="checkbox"
+                           name="interest"
+                           value="Business">
+                    📈 Business
+                </label>
+
+
+                <label class="interest">
+                    <input type="checkbox"
+                           name="interest"
+                           value="Travel">
+                    ✈️ Travel
+                </label>
+
+
+                <label class="interest">
+                    <input type="checkbox"
+                           name="interest"
+                           value="Language Exchange">
+                    🗣️ Language Exchange
+                </label>
+
+
+                <label class="interest">
+                    <input type="checkbox"
+                           name="interest"
+                           value="Teaching Kiswahili">
+                    📚 Teaching Kiswahili
+                </label>
+
+
+                <label class="interest">
+                    <input type="checkbox"
+                           name="interest"
+                           value="International Networking">
+                    🌍 International Networking
+                </label>
+
+
+                <label class="interest">
+                    <input type="checkbox"
+                           name="interest"
+                           value="Earn Money Online">
+                    💰 Earn Money Online
+                </label>
+
+
+                <label class="interest">
+                    <input type="checkbox"
+                           name="interest"
+                           value="Culture">
+                    🎭 Culture
+                </label>
+
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="continue-btn"
+            >
+                Continue
+            </button>
+
+
+        </form>
+
+    </div>
+
+
+    <div class="footer">
+
+        <p>
+            Chat • Connect • Learn • Earn
+        </p>
+
+    </div>
+
 
 </div>
 
-<div class="footer">
-    <p>🌍 Connect globally • 💬 Chat • 💰 Earn</p>
-</div>
 
-</div></div><script>
+<script>
 
-document.getElementById("interestForm").addEventListener("submit", function(e) {
+document
+.getElementById("interestForm")
+.addEventListener("submit", function(e) {
 
     e.preventDefault();
 
-    const selectedInterests = [];
+    let selectedInterests = [];
 
     document
-        .querySelectorAll('input[name="interest"]:checked')
-        .forEach(function(item) {
-            selectedInterests.push(item.value);
-        });
+    .querySelectorAll(
+        'input[name="interest"]:checked'
+    )
+    .forEach(function(item) {
+
+        selectedInterests.push(item.value);
+
+    });
+
 
     if (selectedInterests.length === 0) {
-        alert("Please select at least one interest.");
+
+        alert(
+            "Please select at least one interest."
+        );
+
         return;
     }
+
 
     localStorage.setItem(
         "interests",
         JSON.stringify(selectedInterests)
     );
 
-    const button = document.getElementById("interestButton");
 
-    button.disabled = true;
-    button.innerHTML = "LOADING PAYMENT...";
-
-    setTimeout(function() {
-        window.location.href = "payment.html";
-    }, 500);
+    window.location.href = "payment.html";
 
 });
 
-</script></body>
+</script>
+
+</body>
 </html>
