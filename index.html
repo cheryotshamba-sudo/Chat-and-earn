@@ -1,11 +1,19 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>GlobalLink Kenya | Chat & Earn</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GlobalLink Kenya | Chat & Earn</title>
 
 <link rel="stylesheet" href="style.css">
 
-</head><body><div class="page">
+</head>
+
+<body>
+
+<div class="page">
 
     <div class="container">
 
@@ -66,9 +74,19 @@
                     <label for="gender">Gender</label>
 
                     <select id="gender" required>
-                        <option value="">Select Gender</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
+
+                        <option value="">
+                            Select Gender
+                        </option>
+
+                        <option value="Male">
+                            Male
+                        </option>
+
+                        <option value="Female">
+                            Female
+                        </option>
+
                     </select>
                 </div>
 
@@ -76,7 +94,11 @@
                     <label for="county">County</label>
 
                     <select id="county" required>
-                        <option value="">Select County</option>
+
+                        <option value="">
+                            Select County
+                        </option>
+
                         <option>Nairobi</option>
                         <option>Mombasa</option>
                         <option>Kisumu</option>
@@ -88,18 +110,8 @@
                         <option>Meru</option>
                         <option>Nyeri</option>
                         <option>Other</option>
+
                     </select>
-                </div>
-
-                <div class="field">
-                    <label for="city">City / Town</label>
-
-                    <input
-                        type="text"
-                        id="city"
-                        placeholder="Enter your town"
-                        required
-                    >
                 </div>
 
                 <div class="field">
@@ -138,67 +150,78 @@
 
 </div>
 
+
 <script>
 
-    const form = document.getElementById("registrationForm");
-    const button = document.getElementById("continueBtn");
+const form = document.getElementById("registrationForm");
 
-    form.addEventListener("submit", function(e) {
+const button = document.getElementById("continueBtn");
 
-        e.preventDefault();
 
-        const fullname =
-            document.getElementById("fullname").value.trim();
+form.addEventListener("submit", function(e) {
 
-        const age =
-            document.getElementById("age").value;
+    e.preventDefault();
 
-        const gender =
-            document.getElementById("gender").value;
+    const fullname =
+        document.getElementById("fullname").value.trim();
 
-        const county =
-            document.getElementById("county").value;
+    const age =
+        document.getElementById("age").value;
 
-        const city =
-            document.getElementById("city").value.trim();
+    const gender =
+        document.getElementById("gender").value;
 
-        const phone =
-            document.getElementById("phone").value.trim();
+    const county =
+        document.getElementById("county").value;
 
-        if (
-            !fullname ||
-            !age ||
-            !gender ||
-            !county ||
-            !city ||
-            !phone
-        ) {
-            alert("Please complete all the required fields.");
-            return;
-        }
+    const phone =
+        document.getElementById("phone").value.trim();
 
-        if (Number(age) < 18 || Number(age) > 99) {
-            alert("You must be between 18 and 99 years old.");
-            return;
-        }
 
-        localStorage.setItem("fullname", fullname);
-        localStorage.setItem("age", age);
-        localStorage.setItem("gender", gender);
-        localStorage.setItem("county", county);
-        localStorage.setItem("city", city);
-        localStorage.setItem("phone", phone);
+    if (
+        !fullname ||
+        !age ||
+        !gender ||
+        !county ||
+        !phone
+    ) {
 
-        button.disabled = true;
-        button.innerHTML = "PLEASE WAIT...";
+        alert("Please complete all the required fields.");
 
-        setTimeout(function() {
+        return;
+    }
 
-            window.location.href = "interests.html";
 
-        }, 500);
+    if (
+        Number(age) < 18 ||
+        Number(age) > 99
+    ) {
 
-    });
+        alert("You must be between 18 and 99 years old.");
+
+        return;
+    }
+
+
+    localStorage.setItem("fullname", fullname);
+    localStorage.setItem("age", age);
+    localStorage.setItem("gender", gender);
+    localStorage.setItem("county", county);
+    localStorage.setItem("phone", phone);
+
+
+    button.disabled = true;
+
+    button.innerHTML = "PLEASE WAIT...";
+
+
+    setTimeout(function() {
+
+        window.location.href = "interests.html";
+
+    }, 500);
+
+});
 
 </script>
 
