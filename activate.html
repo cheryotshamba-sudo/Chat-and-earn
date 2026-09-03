@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Activate Account</title>
+<title>Chat & Earn - Payment</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Mali:wght@500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
@@ -19,103 +23,164 @@ box-sizing:border-box;
 
 body{
 font-family:Poppins,sans-serif;
-background:linear-gradient(135deg,#090214,#18042e,#26063d);
+background:#000;
+color:#fff;
+min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-min-height:100vh;
-padding:20px;
-color:#fff;
+padding:18px;
+}
+
+.container{
+width:100%;
+max-width:430px;
+}
+
+.header{
+text-align:center;
+margin-bottom:18px;
+}
+
+.logo{
+font-size:30px;
+font-weight:800;
+}
+
+.logo span{
+color:#00A651;
+}
+
+.subtitle{
+font-family:Mali,sans-serif;
+font-size:14px;
+color:#ccc;
+margin-top:4px;
 }
 
 .card{
-width:100%;
-max-width:420px;
-background:rgba(255,255,255,.06);
-border:1px solid rgba(255,255,255,.08);
-border-radius:25px;
-padding:30px;
-backdrop-filter:blur(12px);
+background:#111;
+border:1px solid #222;
+border-radius:22px;
+padding:24px 20px;
+box-shadow:0 10px 35px rgba(0,0,0,.5);
 }
 
 h1{
-font-size:30px;
-margin-bottom:10px;
+font-size:24px;
+font-weight:800;
+margin-bottom:8px;
 }
 
-.greeting{
-color:#ff89c8;
-font-weight:600;
+.description{
+font-size:14px;
+line-height:1.6;
+color:#ccc;
 margin-bottom:20px;
 }
 
-.info{
-line-height:1.7;
-color:#ddd;
-margin-bottom:30px;
+.price-box{
+background:#006B3F;
+border-radius:16px;
+padding:18px;
+text-align:center;
+margin-bottom:22px;
+}
+
+.price-label{
+font-size:13px;
+font-weight:600;
 }
 
 .price{
-background:rgba(255,255,255,.08);
-padding:20px;
-border-radius:18px;
-text-align:center;
-margin-bottom:25px;
-}
-
-.price h2{
 font-size:38px;
-color:#ff5ab5;
+font-weight:800;
+margin-top:2px;
 }
 
 label{
 display:block;
-margin-bottom:10px;
-font-weight:600;
+font-size:14px;
+font-weight:700;
+margin-bottom:8px;
 }
 
 input{
 width:100%;
-padding:15px;
-border:none;
+height:54px;
+padding:0 15px;
+border:1px solid #333;
 border-radius:12px;
+background:#fff;
+color:#000;
+font-family:Poppins,sans-serif;
 font-size:16px;
-margin-bottom:25px;
+font-weight:600;
 outline:none;
+}
+
+input:focus{
+border:2px solid #00A651;
 }
 
 button{
 width:100%;
-padding:16px;
+height:55px;
+margin-top:15px;
 border:none;
-border-radius:40px;
-background:linear-gradient(90deg,#ff2f92,#ff5ab5);
+border-radius:30px;
+background:#00A651;
 color:#fff;
-font-size:18px;
-font-weight:700;
+font-family:Poppins,sans-serif;
+font-size:17px;
+font-weight:800;
 cursor:pointer;
-transition:.3s;
 }
 
-button:hover{
-opacity:.9;
+button:active{
+transform:scale(.98);
+}
+
+button:disabled{
+opacity:.6;
+cursor:not-allowed;
 }
 
 #status{
-margin-top:20px;
-padding:15px;
-background:rgba(255,255,255,.08);
-border-radius:12px;
-text-align:center;
-font-weight:600;
 display:none;
+margin-top:18px;
+padding:15px;
+border-radius:13px;
+background:#1b1b1b;
+border:1px solid #292929;
+text-align:center;
+font-size:14px;
+font-weight:600;
+line-height:1.6;
 }
 
 .steps{
-margin-top:25px;
+margin-top:20px;
+font-size:13px;
 line-height:2;
-color:#ddd;
-font-size:15px;
+color:#bbb;
+}
+
+.success{
+border-color:#00A651 !important;
+color:#7cffb5;
+}
+
+.error{
+border-color:#ff4444 !important;
+color:#ff7777;
+}
+
+.footer{
+text-align:center;
+margin-top:16px;
+font-size:11px;
+color:#777;
 }
 
 </style>
@@ -124,74 +189,154 @@ font-size:15px;
 
 <body>
 
+<div class="container">
+
+<div class="header">
+
+<div class="logo">
+🌍 Chat <span>&</span> Earn
+</div>
+
+<div class="subtitle">
+Connect • Chat • Learn • Earn
+</div>
+
+</div>
+
+
 <div class="card">
 
 <h1>Activate Your Account</h1>
 
-<p class="greeting">
-
+<p class="description">
+Complete your account activation using M-PESA.
+An STK Push will be sent directly to your phone.
 </p>
 
-<p class="info">
-Your account is almost ready.
-Pay a one-time activation fee of
-<strong>KSh 100</strong>
-via M-PESA to unlock full access.
-</p>
+
+<div class="price-box">
+
+<div class="price-label">
+One-Time Activation Fee
+</div>
 
 <div class="price">
-
-<p>One-time Activation Fee</p>
-
-<h2>KSh 100</h2>
+KSh 100
+</div>
 
 </div>
 
-<label>M-PESA Phone Number</label>
+
+<label for="phone">
+M-PESA Phone Number
+</label>
 
 <input
 type="tel"
 id="phone"
-placeholder="0706338937">
+placeholder="0706338937"
+inputmode="numeric"
+maxlength="12"
+>
 
-<button onclick="payNow()">
-Pay Now
+
+<button
+id="payButton"
+onclick="payNow()"
+>
+PAY NOW
 </button>
 
+
 <div id="status"></div>
+
 
 <div class="steps">
 
 ✅ Instant M-PESA STK Push<br>
-✅ Secure Paylor Payment<br>
-✅ Automatic Account Activation
+✅ Secure payment processing<br>
+✅ Automatic payment confirmation
 
 </div>
 
 </div>
+
+
+<div class="footer">
+Secure M-PESA payment
+</div>
+
+</div>
+
+
 <script>
 
-const backend="https://chat-and-earn-backend.onrender.com";
+const backend =
+"https://chat-and-earn-backend.onrender.com";
+
+
+let paymentInterval = null;
+
 
 async function payNow(){
 
-const phone=document.getElementById("phone").value.trim();
+const phone =
+document.getElementById("phone").value.trim();
 
-const status=document.getElementById("status");
+const status =
+document.getElementById("status");
 
-if(phone===""){
-status.style.display="block";
-status.innerHTML="❌ Please enter your M-PESA phone number.";
+const button =
+document.getElementById("payButton");
+
+
+if(phone === ""){
+
+showStatus(
+"❌ Please enter your M-PESA phone number.",
+"error"
+);
+
 return;
+
 }
 
-status.style.display="block";
-status.innerHTML="⏳ Sending STK Push...";
+
+const cleanPhone =
+phone.replace(/\s+/g,"");
+
+
+if(
+!/^07\d{8}$/.test(cleanPhone) &&
+!/^2547\d{8}$/.test(cleanPhone)
+){
+
+showStatus(
+"❌ Enter a valid M-PESA number.",
+"error"
+);
+
+return;
+
+}
+
+
+button.disabled = true;
+button.innerText = "PLEASE WAIT...";
+
+
+showStatus(
+"⏳ Sending STK Push to your phone...",
+""
+);
+
 
 try{
 
-const response=await fetch(backend+"/stkpush",{
-
+const response =
+await fetch(
+backend + "/stkpush",
+{
 method:"POST",
 
 headers:{
@@ -199,90 +344,180 @@ headers:{
 },
 
 body:JSON.stringify({
-phone:phone
+phone:cleanPhone
 })
 
 });
 
-const data=await response.json();
+
+const data =
+await response.json();
+
 
 if(!data.success){
 
-status.innerHTML="❌ "+(data.message||"Unable to send STK Push.");
+button.disabled = false;
+button.innerText = "PAY NOW";
+
+showStatus(
+"❌ " +
+(data.message ||
+"Unable to send STK Push."),
+"error"
+);
 
 return;
 
 }
 
-status.innerHTML="📲 STK Push sent successfully.<br>Please check your phone and enter your M-PESA PIN.";
 
-const reference=data.reference;
+showStatus(
+"📲 STK Push sent successfully.<br><br>" +
+"Check your phone and enter your M-PESA PIN.",
+""
+);
+
+
+const reference =
+data.reference;
+
+
+if(!reference){
+
+showStatus(
+"❌ Payment reference was not received.",
+"error"
+);
+
+button.disabled = false;
+button.innerText = "PAY NOW";
+
+return;
+
+}
+
 
 pollPayment(reference);
+
 
 }catch(error){
 
 console.log(error);
 
-status.innerHTML="❌ Could not connect to the payment server.";
+button.disabled = false;
+button.innerText = "PAY NOW";
+
+showStatus(
+"❌ Could not connect to the payment server.",
+"error"
+);
 
 }
 
 }
+
 
 function pollPayment(reference){
 
-const status=document.getElementById("status");
+if(paymentInterval){
 
-const interval=setInterval(async()=>{
+clearInterval(paymentInterval);
+
+}
+
+
+paymentInterval =
+setInterval(async()=>{
 
 try{
 
-const response=await fetch(
-backend+"/payment-status/"+reference
+const response =
+await fetch(
+backend +
+"/payment-status/" +
+reference
 );
 
-const result=await response.json();
 
-if(result.success){
+const result =
+await response.json();
 
-const payment=result.payment;
 
-if(payment.status==="completed"){
+if(!result.success){
 
-clearInterval(interval);
-
-status.innerHTML="✅ Payment successful.<br>Redirecting...";
-
-setTimeout(()=>{
-
-window.location.href="dashboard.html";
-
-},2000);
+return;
 
 }
 
-if(payment.status==="failed"){
 
-clearInterval(interval);
+const payment =
+result.payment;
 
-status.innerHTML="❌ Payment failed.";
+
+if(payment.status === "completed"){
+
+clearInterval(paymentInterval);
+
+showStatus(
+"✅ PAYMENT SUCCESSFUL!<br><br>" +
+"Your Chat & Earn account has been activated successfully.",
+"success"
+);
+
+
+document.getElementById("payButton").style.display =
+"none";
+
+document.getElementById("phone").style.display =
+"none";
+
+return;
 
 }
 
-if(payment.status==="cancelled"){
 
-clearInterval(interval);
+if(payment.status === "failed"){
 
-status.innerHTML="⚠️ Payment cancelled.";
+clearInterval(paymentInterval);
+
+showStatus(
+"❌ Payment failed. Please try again.",
+"error"
+);
+
+const button =
+document.getElementById("payButton");
+
+button.disabled = false;
+button.innerText = "TRY AGAIN";
+
+return;
 
 }
 
+
+if(payment.status === "cancelled"){
+
+clearInterval(paymentInterval);
+
+showStatus(
+"⚠️ Payment was cancelled.",
+"error"
+);
+
+const button =
+document.getElementById("payButton");
+
+button.disabled = false;
+button.innerText = "TRY AGAIN";
+
+return;
+
 }
 
-}catch(err){
+}catch(error){
 
-console.log(err);
+console.log(error);
 
 }
 
@@ -290,6 +525,25 @@ console.log(err);
 
 }
 
+
+function showStatus(message,type){
+
+const status =
+document.getElementById("status");
+
+status.style.display =
+"block";
+
+status.innerHTML =
+message;
+
+status.className =
+type;
+
+}
+
 </script>
+
 </body>
+
 </html>
