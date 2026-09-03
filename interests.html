@@ -1,90 +1,137 @@
 <!DOCTYPE html><html lang="en">
 <head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>GlobalLink Kenya | Your Interests</title><link rel="stylesheet" href="style.css"><style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>GlobalLink Kenya | Interests</title><link rel="stylesheet" href="style.css"><style>
 
-/* INTERESTS PAGE */
-
-.interests {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-top: 15px;
+body {
+    background: #000000;
+    color: #ffffff;
 }
 
-.interest {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    min-height: 58px;
-    padding: 12px;
-    border: 2px solid #f1d5df;
-    border-radius: 12px;
-    background: #fff;
-    color: #333;
-    font-size: 14px;
-    font-weight: 800;
-    cursor: pointer;
-    transition: 0.2s ease;
+.page {
+    background: #000000;
 }
 
-.interest:hover {
-    border-color: #E91E63;
-    background: #fff5f8;
+.header h1 {
+    color: #ff2b8a;
 }
 
-.interest input {
-    width: 20px;
-    height: 20px;
-    margin: 0;
-    accent-color: #E91E63;
-    cursor: pointer;
+.header p {
+    color: #ffffff;
 }
 
-.interest:has(input:checked) {
-    border-color: #E91E63;
-    background: #fce4ec;
-    color: #E91E63;
+.card {
+    background: #000000;
+    border: 1px solid #333333;
+    box-shadow: none;
 }
 
-#interestForm h2 {
-    text-align: center;
-    font-size: 21px;
-    font-weight: 900;
-    margin-bottom: 5px;
+.card h2 {
+    color: #ffffff;
 }
 
 .interest-note {
-    text-align: center;
-    color: #777;
-    font-size: 13px;
-    margin-bottom: 15px;
+    color: #cccccc;
+}
+
+/* LEFT TO RIGHT SCROLLING INTERESTS */
+
+.interests {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    padding: 8px 2px 15px;
+
+    scroll-behavior: smooth;
+
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+}
+
+.interests::-webkit-scrollbar {
+    display: none;
+}
+
+.interest {
+    flex: 0 0 auto;
+
+    min-width: 145px;
+    min-height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 12px 15px;
+
+    background: #111111;
+
+    border: 2px solid #444444;
+    border-radius: 12px;
+
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 900;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+}
+
+.interest:hover {
+    border-color: #ff2b8a;
+}
+
+.interest input {
+    width: 19px;
+    height: 19px;
+
+    margin: 0;
+
+    accent-color: #ff2b8a;
+
+    flex-shrink: 0;
+}
+
+.interest:has(input:checked) {
+    background: #ff2b8a;
+    border-color: #ff2b8a;
+    color: #ffffff;
 }
 
 .interests-btn {
     width: 100%;
-    height: 58px;
+    height: 60px;
+
     margin-top: 20px;
+
+    background: #ff2b8a;
+    color: #ffffff;
+
     border: none;
     border-radius: 12px;
-    background: #E91E63;
-    color: #fff;
-    font-size: 20px;
+
+    font-size: 21px;
     font-weight: 900;
+
     cursor: pointer;
-    box-shadow: 0 7px 18px rgba(233, 30, 99, 0.28);
+
+    box-shadow: 0 5px 20px rgba(255, 43, 138, 0.35);
 }
 
 .interests-btn:active {
     transform: scale(0.98);
 }
 
-@media (max-width: 420px) {
-
-    .interests {
-        grid-template-columns: 1fr;
-    }
-
+.interests-btn:disabled {
+    opacity: 0.7;
 }
 
 </style></head><body><div class="page"><div class="container"><div class="header">
@@ -98,8 +145,8 @@
     </div>
 
     <p>
-        Tell us what you're interested in so we can
-        connect you with the right people.
+        Choose what you are interested in and
+        connect with the right people.
     </p>
 
 </div>
@@ -111,7 +158,7 @@
         <h2>Select Your Interests</h2>
 
         <p class="interest-note">
-            Choose one or more interests
+            Swipe left or right to see more
         </p>
 
         <div class="interests">
@@ -168,7 +215,11 @@
 
         </div>
 
-        <button type="submit" class="interests-btn">
+        <button
+            type="submit"
+            class="interests-btn"
+            id="interestButton"
+        >
             CONTINUE →
         </button>
 
@@ -204,10 +255,10 @@ document.getElementById("interestForm").addEventListener("submit", function(e) {
         JSON.stringify(selectedInterests)
     );
 
-    const button = document.querySelector(".interests-btn");
+    const button = document.getElementById("interestButton");
 
     button.disabled = true;
-    button.innerHTML = "PLEASE WAIT...";
+    button.innerHTML = "LOADING PAYMENT...";
 
     setTimeout(function() {
         window.location.href = "payment.html";
